@@ -1,0 +1,93 @@
+/* Why Choose Us Section */
+.why-choose-us {
+  // background-color: #f8f9fa;
+  background-color: #000;
+  animation: fadeInSection 1.5s ease-in-out;
+}
+
+.why-choose-us h2 {
+  font-size: 2.5rem;
+  color: #343a40;
+  animation: fadeInHeading 1.5s ease-in-out;
+}
+
+/* Feature Card Styling */
+.feature-card {
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 1.5s ease-in-out forwards;
+}
+
+.icon-container {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  background-color: #007bff;
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: zoomIn 1.2s ease-in-out forwards;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+}
+
+/* Text Styling */
+.feature-card h5 {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  color: #343a40;
+}
+
+.feature-card p {
+  font-size: 1.1rem;
+  color: #6c757d;
+}
+
+/* Card Hover Effect */
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInSection {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,80 @@
+<!-- manage-orders.component.html -->
+<div class="container mt-5">
+  <div class="card p-4 shadow-sm">
+    <h2 class="text-center mb-4">Manage Orders</h2>
+
+    <!-- Orders Table -->
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>Order ID</th>
+            <th>Customer Name</th>
+            <th>Car Model</th>
+            <th>Order Date</th>
+            <!-- <th>Status</th> -->
+            <!-- <th>Actions</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders">
+            <td>{{ order.orderId }}</td>
+            <td>{{ order.customerName }}</td>
+            <td>{{ order.carModel }}</td>
+            <td>{{ order.orderDate | date }}</td>
+            <!-- <td>
+              <select
+                class="form-control"
+                [(ngModel)]="order.status"
+                (change)="updateOrderStatus(order.id, order.status)"
+              >
+                <option value="Pending">Pending</option>
+                <option value="Processing">Processing</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
+              </select>
+            </td> -->
+            <!-- <td>
+              <button
+                class="btn btn-primary btn-sm"
+                (click)="viewOrderDetails(order.id)"
+              >
+                View
+              </button>
+              <button
+                class="btn btn-danger btn-sm"
+                (click)="deleteOrder(order.id)"
+              >
+                Delete
+              </button>
+            </td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination Controls (Optional) -->
+    <!-- <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-center">
+        <li class="page-item" [class.disabled]="currentPage === 1">
+          <a class="page-link" (click)="changePage(currentPage - 1)"
+            >Previous</a
+          >
+        </li>
+        <li
+          class="page-item"
+          *ngFor="let page of totalPages"
+          [class.active]="page === currentPage"
+        >
+          <a class="page-link" (click)="changePage(page)">{{ page }}</a>
+        </li>
+        <li
+          class="page-item"
+          [class.disabled]="currentPage === totalPages.length"
+        >
+          <a class="page-link" (click)="changePage(currentPage + 1)">Next</a>
+        </li>
+      </ul>
+    </nav> -->
+  </div>
+</div>

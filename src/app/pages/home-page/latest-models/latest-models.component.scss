@@ -1,0 +1,117 @@
+/* 3D Featured Cars Section */
+.featured-cars-3d {
+  background-color: #f4f7fa;
+  padding: 80px 20px;
+  text-align: center;
+  perspective: 1000px;
+}
+
+.featured-cars-3d h2 {
+  font-size: 2.8rem;
+  color: #343a40;
+  margin-bottom: 40px;
+}
+
+/* Card Container */
+.card-3d {
+  width: 100%;
+  max-width: 350px;
+  height: 350px;
+  margin: 0 auto;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateY(0);
+  transition: transform 0.8s ease;
+}
+
+.card-3d:hover {
+  transform: rotateY(180deg);
+}
+
+/* Front and Back Faces */
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Front Face */
+.card-face.front {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.5s;
+}
+
+.card-face.front img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.card-face.front h3 {
+  margin-top: 15px;
+  font-size: 1.6rem;
+  color: #333;
+}
+
+/* Back Face */
+.card-face.back {
+  background-color: #007bff;
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-content {
+  text-align: center;
+}
+
+.card-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.card-content .btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: white;
+  color: #007bff;
+  border: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.card-content .btn:hover {
+  background-color: #0056b3;
+  color: white;
+}
+.featured-cars-3d {
+  background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/1400/cb488b120391105.60b08efd3219a.png");
+  //   background-image: url("https://watermark.lovepik.com/photo/40028/4473.jpg_wh1200.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  animation: fadeInBackground 1.5s ease-in-out;
+}
+
+@keyframes fadeInBackground {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

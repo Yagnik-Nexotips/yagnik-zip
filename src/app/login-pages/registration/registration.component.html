@@ -1,0 +1,85 @@
+<div class="body featured-cars-3d">
+  <div class="registration-container">
+    <h2>Create a New Account</h2>
+    <form
+      action="/register"
+      method="POST"
+      [formGroup]="registrationForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <label for="name">Full Name:</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Enter your full name"
+        formControlName="name"
+        required
+      />
+
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Enter your email"
+        formControlName="email"
+        required
+      />
+
+      <div
+        *ngIf="
+          registrationForm.get('email')?.invalid &&
+          registrationForm.get('email')?.touched
+        "
+        class="text-danger"
+      >
+        Please enter a valid email address.
+      </div>
+
+      <label for="password">Password:</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Enter your password"
+        formControlName="password"
+        required
+      />
+      <div
+        *ngIf="
+          registrationForm.get('password')?.invalid &&
+          registrationForm.get('password')?.touched
+        "
+        class="text-danger"
+      >
+        Password must be at least 6 characters.
+      </div>
+
+      <label for="confirm-password">Confirm Password:</label>
+      <input
+        type="password"
+        id="confirm-password"
+        name="confirm-password"
+        placeholder="Confirm your password"
+        formControlName="confirmPassword"
+        required
+      />
+
+      <div
+        *ngIf="
+          registrationForm.hasError('notSame') &&
+          registrationForm.get('confirmPassword')?.touched
+        "
+        class="text-danger"
+      >
+        Passwords do not match.
+      </div>
+
+      <button type="submit" [disabled]="registrationForm.invalid">
+        Register
+      </button>
+      <p>Already have an account? <a href="/login">Login here</a></p>
+    </form>
+  </div>
+</div>

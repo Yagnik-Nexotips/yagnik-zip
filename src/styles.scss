@@ -1,0 +1,16 @@
+.featured-cars-3d {
+  background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/1400/cb488b120391105.60b08efd3219a.png");
+  //   background-image: url("https://watermark.lovepik.com/photo/40028/4473.jpg_wh1200.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  animation: fadeInBackground 1.5s ease-in-out;
+}
+@keyframes fadeInBackground {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

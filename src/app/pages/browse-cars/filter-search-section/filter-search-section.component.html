@@ -1,0 +1,68 @@
+<section id="filter-search-section" class="filter-search-section py-5">
+  <div class="container">
+    <h2 class="section-heading text-center mb-4 text-light">Browse Our Cars</h2>
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <form id="car-filter-form" class="car-filter-form">
+          <div class="row g-3">
+            <!-- Search Bar -->
+            <div class="col-md-4">
+              <input
+                type="text"
+                class="form-control"
+                id="search-bar"
+                placeholder="Search by make, model, etc."
+              />
+            </div>
+            <!-- Make Filter -->
+            <div class="col-md-2">
+              <select class="form-select" id="make-filter">
+                <option selected disabled>Make</option>
+                <option value="toyota">Toyota</option>
+                <option value="honda">Honda</option>
+                <option value="bmw">BMW</option>
+                <option value="mercedes">Mercedes</option>
+              </select>
+            </div>
+            <!-- Model Filter -->
+            <div class="col-md-2">
+              <select class="form-select" id="model-filter">
+                <option selected disabled>Model</option>
+                <option value="corolla">Corolla</option>
+                <option value="civic">Civic</option>
+                <option value="3-series">3 Series</option>
+                <option value="c-class">C-Class</option>
+              </select>
+            </div>
+            <!-- Price Range Filter -->
+            <div class="col-md-2">
+              <select class="form-select" id="price-filter">
+                <option selected disabled>Price Range</option>
+                <option value="below-20k">Below $20,000</option>
+                <option value="20k-40k">$20,000 - $40,000</option>
+                <option value="40k-60k">$40,000 - $60,000</option>
+                <option value="above-60k">Above $60,000</option>
+              </select>
+            </div>
+            <!-- Body Type Filter -->
+            <div class="col-md-2">
+              <select class="form-select" id="body-filter">
+                <option selected disabled>Body Type</option>
+                <option value="sedan">Sedan</option>
+                <option value="suv">SUV</option>
+                <option value="hatchback">Hatchback</option>
+                <option value="convertible">Convertible</option>
+              </select>
+            </div>
+            <!-- Filter Button -->
+            <div class="col-md-12 text-center mt-3">
+              <button type="submit" class="btn btn-primary btn-lg">
+                Apply Filters
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

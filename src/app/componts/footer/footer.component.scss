@@ -1,0 +1,96 @@
+/* Animated Gradient Background */
+.animated-gradient-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  //   background: linear-gradient(45deg, #007bff, #004080, #00c6ff);
+  background: linear-gradient(45deg, #000435, #000, #35063e);
+  background-size: 600% 600%;
+  z-index: -1;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Footer Styles */
+.footer {
+  position: relative;
+  background-color: transparent;
+  padding: 80px 0;
+  color: #ccc;
+}
+
+.footer h5 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* Footer Links */
+.footer .footer-link {
+  color: #999;
+  font-size: 1.2rem;
+  text-decoration: none;
+  margin-bottom: 10px;
+  display: block;
+  transition: all 0.4s ease;
+}
+
+.footer .footer-link:hover {
+  color: #ffffff;
+  transform: translateX(10px);
+}
+
+/* Floating Social Icons */
+.floating-icon {
+  font-size: 2rem;
+  color: #999;
+  margin-right: 20px;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.floating-icon:hover {
+  transform: translateY(-10px);
+  color: #ffffff;
+}
+
+/* Interactive Newsletter Form */
+.newsletter-form .glowing-input {
+  border-radius: 30px;
+  background-color: #ffffff;
+  color: #007bff;
+  padding: 10px 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
+}
+
+.newsletter-form .glowing-input:focus {
+  background-color: #e9f5ff;
+  box-shadow: 0 0 25px rgba(0, 123, 255, 0.6);
+}
+
+/* Parallax Effect */
+.parallax-background {
+  background-attachment: fixed;
+}
+
+@media (max-width: 768px) {
+  .right-footer {
+    text-align: center;
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,87 @@
+/* Our Mission Section */
+.our-mission {
+  background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/1400/cb488b120391105.60b08efd3219a.png");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.mission-content {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 50px;
+  border-radius: 10px;
+}
+
+.our-mission h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: slideUp 1s forwards;
+}
+
+.our-mission p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto 20px;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: slideUp 1.2s forwards;
+}
+
+.mission-button {
+  opacity: 0;
+  transform: scale(0.8);
+  animation: popIn 1.5s forwards;
+}
+
+/* Animations */
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Button Hover Effect */
+.mission-button:hover {
+  background-color: #ffd700;
+  border-color: #ffd700;
+  color: black;
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+
+/* Parallax Background */
+.our-mission {
+  background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/1400/cb488b120391105.60b08efd3219a.png");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Scroll-triggered Animation - Initially Hidden */
+.our-mission h2,
+.our-mission p,
+.mission-button {
+  opacity: 0;
+  transform: translateY(50px);
+}

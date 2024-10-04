@@ -1,0 +1,94 @@
+.car-details-container {
+  animation: fadeIn 0.8s ease-in-out; /* Page fade-in animation */
+}
+
+.car-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.4s ease-in-out;
+}
+
+.car-image img:hover {
+  transform: scale(1.08); /* Zoom-in effect on hover */
+}
+
+.car-info {
+  text-align: left;
+  animation: slideIn 1s ease-in-out; /* Slide-in effect */
+}
+
+.car-name {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  color: #4169e1;
+  //   color: #007bff;
+}
+
+.car-brand,
+.car-price,
+.car-year {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.car-description {
+  font-size: 1.1rem;
+  color: #555;
+  margin-top: 1rem;
+}
+
+.features-heading {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+
+.car-features {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.car-features li {
+  background: #f1f1f1;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  color: #333;
+}
+
+/* Button Styling */
+button {
+  padding: 10px 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #007bff;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

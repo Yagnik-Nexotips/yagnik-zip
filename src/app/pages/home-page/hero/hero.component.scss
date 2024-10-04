@@ -1,0 +1,124 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // background-color: black;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* Hero Section */
+.hero {
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  animation: fadeInBackground 1.5s ease-in-out;
+
+  height: 100vh;
+  background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/1400/cb488b120391105.60b08efd3219a.png"); /* Replace with a valid image */
+  // background-image: url("https://watermark.lovepik.com/photo/40028/4473.jpg_wh1200.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: white;
+  text-align: center;
+  animation: fadeInBackground 2s ease-in-out;
+}
+
+/* Hero Content */
+.hero-content {
+  max-width: 600px;
+  animation: fadeInText 1.5s ease-in-out;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  opacity: 0;
+  animation: fadeInHeading 1.5s forwards;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeInSubheading 2s forwards;
+}
+
+.cta-button {
+  padding: 15px 30px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0;
+  animation: fadeInButton 2.5s forwards;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+}
+
+/* Animations */
+@keyframes fadeInBackground {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInText {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInHeading {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInSubheading {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInButton {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

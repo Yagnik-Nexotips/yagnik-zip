@@ -1,0 +1,293 @@
+<!-- Product List with Add/Edit/Delete Buttons -->
+<div class="featured-cars-3d p-3">
+  <div class="product-list-container">
+    <div class="d-flex justify-content-between">
+      <h2>Available Products</h2>
+      <button (click)="openAddCarModal()" class="btn btn-primary mb-3">
+        Add New Car
+      </button>
+    </div>
+
+    <div *ngIf="products.length > 0; else noProducts" class="row">
+      <div *ngFor="let product of products" class="col-lg-4 col-md-6 mb-4">
+        <div class="car-card card h-100">
+          <img
+            [src]="
+              product.proImage
+                ? product.proImage
+                : '../../../../public/assets/by-defult-car-img.png'
+            "
+            alt="{{ product.proName }}"
+            class="card-img-top car-img"
+          />
+          <div class="card-body car-details">
+            <h3 class="card-title text-dark">{{ product.proName }}</h3>
+            <p class="car-price">${{ product.Price }}</p>
+            <p class="car-description">{{ product.discription1 }}</p>
+            <p class="text-secondary">Category: {{ product.proCategory }}</p>
+            <p *ngIf="product.Discount > 0">
+              Discounted Price: ${{ product.discountPrice }} ({{
+                product.Discount
+              }}% off)
+            </p>
+            <div class="d-flex gap-2 justify-content-center">
+              <button
+                (click)="openEditCarModal(product)"
+                class="btn btn-primary"
+              >
+                Edit
+              </button>
+              <button
+                (click)="deleteProduct(product._id)"
+                class="btn btn-danger"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #noProducts>
+      <p>No products available.</p>
+    </ng-template>
+  </div>
+
+  <!-- Modal for Adding/Editing Car -->
+  <div
+    class="modal fade featured-cars-3 bg-in-add-fomr"
+    id="carModal"
+    tabindex="-1"
+    aria-labelledby="carModalLabel"
+    aria-hidden="true"
+    [ngClass]="{ show: isModalOpen }"
+    [style.display]="isModalOpen ? 'block' : 'none'"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content form-bg">
+        <div class="container">
+          <h2>{{ isEditMode ? "Edit Car" : "Add New Car" }}</h2>
+          <h2 (click)="closeModal()">close</h2>
+          <form [formGroup]="carForm" (ngSubmit)="saveCar()">
+            <div class="mb-3">
+              <label for="proName" class="form-label">Car Name</label>
+              <input
+                id="proName"
+                class="form-control"
+                formControlName="proName"
+              />
+              <div
+                *ngIf="
+                  carForm.get('proName')?.invalid &&
+                  carForm.get('proName')?.touched
+                "
+                class="text-danger"
+              >
+                Car name is required
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="proCategory" class="form-label">Category</label>
+              <input
+                id="proCategory"
+                class="form-control"
+                formControlName="proCategory"
+              />
+              <div
+                *ngIf="
+                  carForm.get('proCategory')?.invalid &&
+                  carForm.get('proCategory')?.touched
+                "
+                class="text-danger"
+              >
+                Category is required
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="proImage" class="form-label">Image URL</label>
+              <input
+                id="proImage"
+                class="form-control"
+                formControlName="proImage"
+              />
+              <div
+                *ngIf="
+                  carForm.get('proImage')?.invalid &&
+                  carForm.get('proImage')?.touched
+                "
+                class="text-danger"
+              >
+                Image URL is required
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="Price" class="form-label">Price</label>
+              <input
+                type="number"
+                id="Price"
+                class="form-control"
+                formControlName="Price"
+              />
+              <div
+                *ngIf="
+                  carForm.get('Price')?.invalid && carForm.get('Price')?.touched
+                "
+                class="text-danger"
+              >
+                Price must be greater than 0
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="Discount" class="form-label">Discount (%)</label>
+              <input
+                type="number"
+                id="Discount"
+                class="form-control"
+                formControlName="Discount"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="discription1" class="form-label">Description 1</label>
+              <input
+                id="discription1"
+                class="form-control"
+                formControlName="discription1"
+              />
+              <div
+                *ngIf="
+                  carForm.get('discription1')?.invalid &&
+                  carForm.get('discription1')?.touched
+                "
+                class="text-danger"
+              >
+                Description 1 is required
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="discription2" class="form-label">Description 2</label>
+              <input
+                id="discription2"
+                class="form-control"
+                formControlName="discription2"
+              />
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="carForm.invalid"
+            >
+              {{ isEditMode ? "Update Car" : "Add Car" }}
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for Add/Edit Car -->
+<!-- <div
+    class="modal fade"
+    id="carModal"
+    tabindex="-1"
+    aria-labelledby="carModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            {{ isEditMode ? "Edit Car" : "Add New Car" }}
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="carForm" (ngSubmit)="saveCar()">
+            <div class="mb-3">
+              <label for="name" class="form-label">Car Name</label>
+              <input id="name" class="form-control" formControlName="name" />
+              <div
+                *ngIf="
+                  carForm.get('name')?.invalid && carForm.get('name')?.touched
+                "
+                class="text-danger"
+              >
+                Car name is required
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="brand" class="form-label">Brand</label>
+              <input id="brand" class="form-control" formControlName="brand" />
+              <div
+                *ngIf="
+                  carForm.get('brand')?.invalid && carForm.get('brand')?.touched
+                "
+                class="text-danger"
+              >
+                Brand is required
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="price" class="form-label">Price</label>
+              <input
+                type="number"
+                id="price"
+                class="form-control"
+                formControlName="price"
+              />
+              <div
+                *ngIf="
+                  carForm.get('price')?.invalid && carForm.get('price')?.touched
+                "
+                class="text-danger"
+              >
+                Price must be greater than 0
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="year" class="form-label">Year</label>
+              <input
+                type="number"
+                id="year"
+                class="form-control"
+                formControlName="year"
+              />
+              <div
+                *ngIf="
+                  carForm.get('year')?.invalid && carForm.get('year')?.touched
+                "
+                class="text-danger"
+              >
+                Year must be between 1900 and {{ new Date().getFullYear() }}
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="carForm.invalid"
+            >
+              {{ isEditMode ? "Update Car" : "Add Car" }}
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

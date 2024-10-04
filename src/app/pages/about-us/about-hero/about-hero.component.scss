@@ -1,0 +1,79 @@
+/* General Styling */
+.hero-section {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/1400/cb488b120391105.60b08efd3219a.png");
+  //   background-image: url("https://watermark.lovepik.com/photo/40028/4473.jpg_wh1200.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  animation: fadeInBackground 1.5s ease-in-out;
+}
+
+/* Hero Section */
+.about-hero {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  z-index: 2;
+  position: relative;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.highlight {
+  color: #ffd700;
+}
+
+/* Animations */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animated Elements */
+.animate-heading {
+  animation: slideIn 1s ease-out forwards;
+}
+
+.animate-subheading {
+  animation: slideIn 1.2s ease-out forwards;
+}
+
+.animate-button {
+  animation: slideIn 1.5s ease-out forwards;
+}
+
+/* Button Hover Effect */
+.btn-primary {
+  background-color: #ffd700;
+  border: none;
+  color: black;
+}
+
+.btn-primary:hover {
+  background-color: #ffcc00;
+  color: white;
+  transition: background-color 0.3s ease;
+}

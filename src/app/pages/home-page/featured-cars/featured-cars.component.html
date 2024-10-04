@@ -1,0 +1,43 @@
+<!-- Featured Cars Section -->
+<section id="featured-cars" class="featured-cars py-5">
+  <div class="container">
+    <h2 class="text-center mb-5 text-light">Featured Cars</h2>
+    <div class="row">
+      <div *ngIf="products.length > 0; else noProducts" class="row">
+        <div *ngFor="let product of products" class="col-lg-4 col-md-6 mb-4">
+          <div class="car-card card h-100">
+            <img
+              [src]="
+                product.proImage
+                  ? product.proImage
+                  : '../../../../public/assets/by-defult-car-img.png'
+              "
+              alt="{{ product.proName }}"
+              class="card-img-top car-img"
+            />
+            <div class="card-body car-details">
+              <h3 class="card-title text-dark">{{ product.proName }}</h3>
+              <p class="car-price">${{ product.Price }}</p>
+              <p class="car-description">{{ product.discription1 }}</p>
+              <button
+                (click)="viewDetails(product)"
+                class="view-details btn btn-primary"
+              >
+                Details
+              </button>
+              <p *ngIf="product.Discount > 0">
+                Discounted Price: ${{ product.discountPrice }} ({{
+                  product.Discount
+                }}% off)
+              </p>
+              <div class="d-flex gap-2 justify-content-center"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #noProducts>
+        <p class="noProducts">No products available.</p>
+      </ng-template>
+    </div>
+  </div>
+</section>
